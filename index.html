@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Contract Template Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .disclaimer-banner {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #856404;
+            text-align: center;
+        }
+
+        .disclaimer-banner strong {
+            font-weight: 600;
+        }
+
+        .ad-container {
+            background-color: #efefef;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 16px 0;
+            text-align: center;
+            color: #999;
+            border-radius: 4px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .control-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: #1a1a1a;
+        }
+
+        .form-group select,
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="date"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0052a3;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        .preview-panel {
+            background: white;
+            padding: 24px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            max-height: 900px;
+            overflow-y: auto;
+        }
+
+        .contract-preview {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        .contract-preview h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .contract-preview h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .contract-preview p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .contract-preview ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .contract-preview li {
+            margin-bottom: 8px;
+        }
+
+        .signature-block {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .signature-line {
+            border-top: 1px solid #000;
+            padding-top: 6px;
+            font-size: 12px;
+        }
+
+        .affiliate-section {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .affiliate-section h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .affiliate-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .affiliate-link {
+            padding: 12px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #0066cc;
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        .affiliate-link:hover {
+            background: #f0f0f0;
+            border-color: #0066cc;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #ddd;
+            margin-top: 24px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .disclaimer-banner,
+            .ad-container,
+            .control-panel,
+            .affiliate-section,
+            .button-group,
+            .footer,
+            .form-group {
+                display: none !important;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .preview-panel {
+                box-shadow: none;
+                max-height: none;
+                overflow: visible;
+                padding: 0;
+            }
+
+            .contract-preview {
+                font-size: 12px;
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 16px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 8px;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="disclaimer-banner">
+        <strong>⚠️ Legal Disclaimer:</strong> These templates are for informational purposes only and do not constitute legal advice. Laws vary by jurisdiction. Always consult a qualified attorney before signing any legal document.
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Professional Contract Template Generator</h1>
+            <p>Generate jurisdiction-specific contracts in seconds. Customize, preview, and download.</p>
+        </div>
+
+        <div class="ad-container">Advertisement - Top</div>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="success-message" id="successMessage"></div>
+
+                <div class="section-title">Template Selection</div>
+
+                <div class="form-group">
+                    <label for="templateSelect">Select Contract Template</label>
+                    <select id="templateSelect">
+                        <option value="">-- Choose a template --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jurisdictionOverride">Override Jurisdiction</label>
+                    <select id="jurisdictionOverride">
+                        <option value="">-- Use template's jurisdiction --</option>
+                        <option value="US">United States</option>
+                        <option value="India">India</option>
+                        <option value="Canada">Canada</option>
+                        <option value="China">China</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="EU">Europe (EU)</option>
+                    </select>
+                </div>
+
+                <div id="formFieldsContainer"></div>
+
+                <div class="section-title">Actions</div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" id="saveDraftBtn">Save Draft</button>
+                    <button class="btn btn-secondary" id="loadDraftBtn">Load Last Draft</button>
+                    <button class="btn btn-warning" id="clearDraftBtn">Clear Draft</button>
+                </div>
+
+                <div class="button-group" style="margin-top: 12px;">
+                    <button class="btn btn-success" id="downloadPdfBtn">Download as PDF</button>
+                    <button class="btn btn-success" id="downloadHtmlBtn">Download as HTML</button>
+                </div>
+            </div>
+
+            <div class="preview-panel">
+                <div id="contractPreview" class="contract-preview">
+                    <div class="empty-state">Select a template to begin</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="affiliate-section">
+            <h3>Need Professional Legal Review?</h3>
+            <div class="affiliate-links">
+                <a href="#" class="affiliate-link">✓ LegalZoom - Affordable Legal Services</a>
+                <a href="#" class="affiliate-link">✓ Rocket Lawyer - Online Legal Documents</a>
+                <a href="#" class="affiliate-link">✓ Justia - Free Legal Resources & Attorney Directory</a>
+                <a href="#" class="affiliate-link">✓ LawDepot - Contract Templates & Notarization</a>
+            </div>
+        </div>
+
+        <div class="ad-container">Advertisement - Bottom</div>
+
+        <div class="footer">
+            <p>&copy; 2024 Contract Template Generator. All rights reserved. This is a template generation tool and not a substitute for legal counsel.</p>
+        </div>
+    </div>
+
+    <script>
+        // ==================== TEMPLATE GENERATION ====================
+
+        // Base template categories
+        const baseTemplates = [
+            // 1. Non-Disclosure Agreement variations
+            {
+                baseId: 'nda',
+                name: 'Non-Disclosure Agreement',
+                type: 'mutual',
+                variations: ['mutual', 'unilateral']
+            },
+            // 2. Freelance Services Contract
+            {
+                baseId: 'freelance',
+                name: 'Freelance Services Contract',
+                type: 'services',
+                variations: ['web-dev', 'writing', 'design', 'consulting', 'marketing']
+            },
+            // 3. Rental/Lease Agreement
+            {
+                baseId: 'rental',
+                name: 'Rental/Lease Agreement',
+                type: 'property',
+                variations: ['residential', 'commercial', 'month-to-month', 'furnished']
+            },
+            // 4. Employment Contract
+            {
+                baseId: 'employment',
+                name: 'Employment Contract',
+                type: 'employment',
+                variations: ['full-time', 'part-time', 'probation', 'fixed-term', 'at-will']
+            },
+            // 5. Bill of Sale
+            {
+                baseId: 'bill-of-sale',
+                name: 'Bill of Sale',
+                type: 'sale',
+                variations: ['vehicle', 'goods', 'electronics', 'livestock', 'property']
+            },
+            // 6. Loan Agreement
+            {
+                baseId: 'loan',
+                name: 'Loan Agreement',
+                type: 'financial',
+                variations: ['personal', 'business', 'with-interest', 'interest-free', 'secured']
+            },
+            // 7. Service Level Agreement
+            {
+                baseId: 'sla',
+                name: 'Service Level Agreement',
+                type: 'service',
+                variations: ['it-support', 'cleaning', 'maintenance', 'hosting', 'support']
+            },
+            // 8. Partnership Agreement
+            {
+                baseId: 'partnership',
+                name: 'Partnership Agreement',
+                type: 'business',
+                variations: ['general', 'limited', 'profit-sharing', 'equal', 'unequal']
+            },
+            // 9. Independent Contractor Agreement
+            {
+                baseId: 'contractor',
+                name: 'Independent Contractor Agreement',
+                type: 'contractor',
+                variations: ['it', 'construction', 'consulting', 'creative', 'general']
+            },
+            // 10. Software License Agreement
+            {
+                baseId: 'software-license',
+                name: 'Software License Agreement',
+                type: 'software',
+                variations: ['proprietary', 'saas', 'open-source', 'enterprise', 'trial']
+            }
+        ];
+
+        const jurisdictions = ['US', 'India', 'Canada', 'China', 'UK', 'EU'];
+
+        // Generate templates programmatically
+        function generateTemplates() {
+            const templates = [];
+            let idCounter = 0;
+
+            for (const base of baseTemplates) {
+                for (const variation of base.variations) {
+                    for (const jurisdiction of jurisdictions) {
+                        const template = createTemplate(
+                            base.baseId,
+                            base.name,
+                            variation,
+                            jurisdiction,
+                            idCounter
+                        );
+                        templates.push(template);
+                        idCounter++;
+                    }
+                }
+            }
+
+            return templates;
+        }
+
+        function createTemplate(baseId, baseName, variation, jurisdiction, id) {
+            const jurisdictionLabel = {
+                'US': 'United States',
+                'India': 'India',
+                'Canada': 'Canada',
+                'China': 'China',
+                'UK': 'United Kingdom',
+                'EU': 'Europe (EU)'
+            }[jurisdiction];
+
+            const templateName = `${baseName} – ${variation.replace('-', ' ')} – ${jurisdictionLabel}`;
+
+            // Define common fields for all templates
+            const commonFields = [
+                { name: 'party1Name', label: 'Party 1 Name (Full Legal Name)', type: 'text', placeholder: 'Enter full legal name', required: true },
+                { name: 'party1Address', label: 'Party 1 Address', type: 'textarea', placeholder: 'Enter complete address', required: true },
+                { name: 'party2Name', label: 'Party 2 Name (Full Legal Name)', type: 'text', placeholder: 'Enter full legal name', required: true },
+                { name: 'party2Address', label: 'Party 2 Address', type: 'textarea', placeholder: 'Enter complete address', required: true },
+                { name: 'effectiveDate', label: 'Effective Date', type: 'date', required: true }
+            ];
+
+            // Add variation-specific fields
+            let fields = JSON.parse(JSON.stringify(commonFields));
+
+            if (baseId === 'nda') {
+                fields.push({ name: 'confidentialInfo', label: 'Description of Confidential Information', type: 'textarea', placeholder: 'Describe what information is confidential', required: true });
+                fields.push({ name: 'disclosurePeriod', label: 'Disclosure Period (in months)', type: 'number', placeholder: '12', required: true });
+                fields.push({ name: 'confidentialityPeriod', label: 'Confidentiality Duration (in years)', type: 'number', placeholder: '5', required: true });
+            } else if (baseId === 'freelance') {
+                fields.push({ name: 'scope', label: 'Scope of Work', type: 'textarea', placeholder: 'Describe services to be provided', required: true });
+                fields.push({ name: 'compensation', label: 'Total Compensation Amount', type: 'number', placeholder: '5000', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+                fields.push({ name: 'deliverables', label: 'Key Deliverables', type: 'textarea', placeholder: 'List deliverables', required: true });
+                fields.push({ name: 'dueDate', label: 'Project Completion Date', type: 'date', required: true });
+            } else if (baseId === 'rental') {
+                fields.push({ name: 'propertyDescription', label: 'Property Description', type: 'textarea', placeholder: 'Describe the rental property', required: true });
+                fields.push({ name: 'monthlyRent', label: 'Monthly Rent Amount', type: 'number', placeholder: '1000', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+                fields.push({ name: 'leaseTerm', label: 'Lease Term (in months)', type: 'number', placeholder: '12', required: true });
+                fields.push({ name: 'securityDeposit', label: 'Security Deposit Amount', type: 'number', placeholder: '2000', required: true });
+            } else if (baseId === 'employment') {
+                fields.push({ name: 'jobTitle', label: 'Job Title', type: 'text', placeholder: 'Enter job title', required: true });
+                fields.push({ name: 'salary', label: 'Annual Salary', type: 'number', placeholder: '50000', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+                fields.push({ name: 'startDate', label: 'Employment Start Date', type: 'date', required: true });
+                fields.push({ name: 'employmentType', label: 'Employment Type', type: 'select', options: ['Full-Time', 'Part-Time', 'Contract'], required: true });
+            } else if (baseId === 'bill-of-sale') {
+                fields.push({ name: 'itemDescription', label: 'Item Description', type: 'textarea', placeholder: 'Describe item(s) being sold', required: true });
+                fields.push({ name: 'salePrice', label: 'Sale Price', type: 'number', placeholder: '10000', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+                fields.push({ name: 'condition', label: 'Condition of Item', type: 'text', placeholder: 'e.g., Used, New, Fair', required: true });
+            } else if (baseId === 'loan') {
+                fields.push({ name: 'loanAmount', label: 'Loan Amount', type: 'number', placeholder: '25000', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+                fields.push({ name: 'interestRate', label: 'Interest Rate (% per annum)', type: 'number', placeholder: '5', required: true });
+                fields.push({ name: 'repaymentTerm', label: 'Repayment Term (in months)', type: 'number', placeholder: '24', required: true });
+            } else if (baseId === 'sla') {
+                fields.push({ name: 'services', label: 'Services Provided', type: 'textarea', placeholder: 'Describe services', required: true });
+                fields.push({ name: 'uptime', label: 'Target Uptime (%)', type: 'number', placeholder: '99.9', required: true });
+                fields.push({ name: 'responseTime', label: 'Response Time (hours)', type: 'number', placeholder: '24', required: true });
+                fields.push({ name: 'monthlyFee', label: 'Monthly Service Fee', type: 'number', placeholder: '500', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+            } else if (baseId === 'partnership') {
+                fields.push({ name: 'businessName', label: 'Business Name', type: 'text', placeholder: 'Enter business name', required: true });
+                fields.push({ name: 'profitSharing', label: 'Profit Sharing Ratio (%)', type: 'text', placeholder: '50/50 or 60/40', required: true });
+                fields.push({ name: 'investmentAmount', label: 'Initial Investment Amount', type: 'number', placeholder: '100000', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+            } else if (baseId === 'contractor') {
+                fields.push({ name: 'scope', label: 'Scope of Work', type: 'textarea', placeholder: 'Describe work to be performed', required: true });
+                fields.push({ name: 'rate', label: 'Hourly/Fixed Rate', type: 'number', placeholder: '50', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+                fields.push({ name: 'contractDuration', label: 'Contract Duration (in months)', type: 'number', placeholder: '6', required: true });
+            } else if (baseId === 'software-license') {
+                fields.push({ name: 'softwareName', label: 'Software/Product Name', type: 'text', placeholder: 'Enter software name', required: true });
+                fields.push({ name: 'licenseFee', label: 'License Fee', type: 'number', placeholder: '500', required: true });
+                fields.push({ name: 'currency', label: 'Currency', type: 'select', options: ['USD', 'INR', 'EUR', 'GBP', 'CAD', 'CNY'], required: true });
+                fields.push({ name: 'licenseType', label: 'License Type', type: 'select', options: ['Single User', 'Multi-User', 'Enterprise', 'Educational'], required: true });
+            }
+
+            return {
+                id: `template-${id}`,
+                name: templateName,
+                jurisdiction: jurisdiction,
+                baseId: baseId,
+                variation: variation,
+                description: `${baseName} template suitable for ${jurisdictionLabel} jurisdiction with ${variation} variation.`,
+                fields: fields,
+                render: function(values) {
+                    return renderContract(this, values, jurisdiction);
+                }
+            };
+        }
+
+        function renderContract(template, values, jurisdiction) {
+            const party1 = escapeHtml(values.party1Name || 'Party 1');
+            const party2 = escapeHtml(values.party2Name || 'Party 2');
+            const effectiveDate = escapeHtml(values.effectiveDate || 'Date TBD');
+            let contractText = '';
+
+            // Use overridden jurisdiction if provided
+            const jurisdictionLabel = {
+                'US': 'United States',
+                'India': 'India',
+                'Canada': 'Canada',
+                'China': 'China',
+                'UK': 'United Kingdom',
+                'EU': 'Europe (EU)'
+            }[jurisdiction] || jurisdictionLabel;
+
+            contractText += `<h2>${escapeHtml(template.name)}</h2>`;
+            contractText += `<p><strong>Jurisdiction:</strong> ${jurisdictionLabel}</p>`;
+            contractText += `<p><strong>Effective Date:</strong> ${effectiveDate}</p>`;
+
+            // Add jurisdiction-specific header
+            const jurisdictionHeader = getJurisdictionHeader(jurisdiction);
+            contractText += jurisdictionHeader;
+
+            contractText += `<h3>1. PARTIES</h3>`;
+            contractText += `<p>This agreement is entered into as of ${effectiveDate} between ${party1} ("Party 1"), located at ${escapeHtml(values.party1Address || 'Address TBD')}, and ${party2} ("Party 2"), located at ${escapeHtml(values.party2Address || 'Address TBD')}.</p>`;
+
+            // Template-specific content
+            contractText += renderTemplateContent(template, values, jurisdiction);
+
+            // Add jurisdiction-specific clauses
+            const jurisdictionClauses = getJurisdictionClauses(jurisdiction);
+            contractText += jurisdictionClauses;
+
+            // Generic closing
+            contractText += `<h3>GOVERNING LAW AND JURISDICTION</h3>`;
+            contractText += `<p>This Agreement shall be governed by and construed in accordance with the laws of ${jurisdictionLabel}, without regard to its conflict of law principles. The parties irrevocably submit to the exclusive jurisdiction of the courts in ${jurisdictionLabel}.</p>`;
+
+            contractText += `<h3>ENTIRE AGREEMENT</h3>`;
+            contractText += `<p>This Agreement constitutes the entire agreement between the parties and supersedes all prior negotiations, understandings, and agreements, whether written or oral.</p>`;
+
+            contractText += `<h3>AMENDMENTS</h3>`;
+            contractText += `<p>No amendment or modification of this Agreement shall be effective unless in writing and signed by both parties.</p>`;
+
+            contractText += `<div class="signature-block">`;
+            contractText += `<div class="signature-line">Signature: ____________________<br>Name: ${party1}<br>Date: ____________________</div>`;
+            contractText += `<div class="signature-line">Signature: ____________________<br>Name: ${party2}<br>Date: ____________________</div>`;
+            contractText += `</div>`;
+
+            return contractText;
+        }
+
+        function renderTemplateContent(template, values, jurisdiction) {
+            let content = '';
+
+            if (template.baseId === 'nda') {
+                const ndaType = template.variation === 'mutual' ? 'Mutual' : 'Unilateral';
+                content += `<h3>2. DEFINITION OF CONFIDENTIAL INFORMATION</h3>`;
+                content += `<p>"Confidential Information" means all non-public information disclosed by one party to the other, including: ${escapeHtml(values.confidentialInfo || 'trade secrets, business plans, technical data, and proprietary information')}.</p>`;
+                content += `<h3>3. TERM</h3>`;
+                content += `<p>Disclosure of Confidential Information shall occur during the ${escapeHtml(values.disclosurePeriod || '12')} month disclosure period. Confidentiality obligations shall survive for ${escapeHtml(values.confidentialityPeriod || '5')} years after the final disclosure.</p>`;
+                content += `<h3>4. OBLIGATIONS</h3>`;
+                content += `<p>The receiving party agrees to: (a) maintain Confidential Information in strict confidence; (b) limit access to those with a need to know; (c) protect it with measures no less rigorous than those used for its own confidential information; (d) not disclose except as required by law.</p>`;
+            } else if (template.baseId === 'freelance') {
+                content += `<h3>2. SCOPE OF WORK</h3>`;
+                content += `<p>Party 2 agrees to provide the following services: ${escapeHtml(values.scope || 'Services as described')}</p>`;
+                content += `<h3>3. DELIVERABLES</h3>`;
+                content += `<p>Key deliverables include: ${escapeHtml(values.deliverables || 'As specified in the scope of work')}. Completion date: ${escapeHtml(values.dueDate || 'TBD')}</p>`;
+                content += `<h3>4. COMPENSATION</h3>`;
+                content += `<p>Party 1 shall pay Party 2 a total of ${escapeHtml(values.compensation || '0')} ${escapeHtml(values.currency || 'USD')} for services rendered.</p>`;
+                content += `<h3>5. INTELLECTUAL PROPERTY</h3>`;
+                content += `<p>All work product created under this agreement shall be owned by Party 1 upon payment in full.</p>`;
+            } else if (template.baseId === 'rental') {
+                content += `<h3>2. PROPERTY</h3>`;
+                content += `<p>Property described as: ${escapeHtml(values.propertyDescription || 'Residential property')}</p>`;
+                content += `<h3>3. RENT AND SECURITY DEPOSIT</h3>`;
+                content += `<p>Monthly rent: ${escapeHtml(values.monthlyRent || '0')} ${escapeHtml(values.currency || 'USD')}. Security deposit: ${escapeHtml(values.securityDeposit || '0')} ${escapeHtml(values.currency || 'USD')}.</p>`;
+                content += `<h3>4. LEASE TERM</h3>`;
+                content += `<p>This lease is for a period of ${escapeHtml(values.leaseTerm || '12')} months commencing on ${escapeHtml(values.effectiveDate || 'Effective Date')}.</p>`;
+                content += `<h3>5. TENANT OBLIGATIONS</h3>`;
+                content += `<p>Tenant shall: (a) pay rent on time; (b) maintain the property in good condition; (c) comply with all applicable laws; (d) not sublease without consent.</p>`;
+            } else if (template.baseId === 'employment') {
+                content += `<h3>2. POSITION AND DUTIES</h3>`;
+                content += `<p>Party 2 shall serve as ${escapeHtml(values.jobTitle || 'Employee')} and perform duties as assigned by Party 1.</p>`;
+                content += `<h3>3. COMPENSATION</h3>`;
+                content += `<p>Annual salary: ${escapeHtml(values.salary || '0')} ${escapeHtml(values.currency || 'USD')}. Employment type: ${escapeHtml(values.employmentType || 'At-Will')}.</p>`;
+                content += `<h3>4. TERM</h3>`;
+                content += `<p>Employment commences on ${escapeHtml(values.startDate || 'Start Date')}.</p>`;
+                content += `<h3>5. AT-WILL EMPLOYMENT</h3>`;
+                content += `<p>Either party may terminate employment at any time with appropriate notice, except where local law requires otherwise.</p>`;
+            } else if (template.baseId === 'bill-of-sale') {
+                content += `<h3>2. DESCRIPTION OF GOODS</h3>`;
+                content += `<p>Item(s): ${escapeHtml(values.itemDescription || 'Goods as specified')}. Condition: ${escapeHtml(values.condition || 'As Described')}.</p>`;
+                content += `<h3>3. SALE PRICE AND PAYMENT</h3>`;
+                content += `<p>Sale price: ${escapeHtml(values.salePrice || '0')} ${escapeHtml(values.currency || 'USD')}. Payment terms: Full payment due upon signing.</p>`;
+                content += `<h3>4. TRANSFER OF OWNERSHIP</h3>`;
+                content += `<p>Seller transfers all right, title, and interest in the goods to Buyer as of the date of this agreement.</p>`;
+                content += `<h3>5. AS-IS CONDITION</h3>`;
+                content += `<p>Goods are sold "as-is" without warranties, express or implied.</p>`;
+            } else if (template.baseId === 'loan') {
+                content += `<h3>2. LOAN AMOUNT AND TERMS</h3>`;
+                content += `<p>Loan amount: ${escapeHtml(values.loanAmount || '0')} ${escapeHtml(values.currency || 'USD')}. Interest rate: ${escapeHtml(values.interestRate || '0')}% per annum. Repayment term: ${escapeHtml(values.repaymentTerm || '24')} months.</p>`;
+                content += `<h3>3. REPAYMENT SCHEDULE</h3>`;
+                content += `<p>Borrower shall repay the loan in equal monthly installments commencing one month after the loan date.</p>`;
+                content += `<h3>4. DEFAULT</h3>`;
+                content += `<p>If Borrower fails to make any payment when due, Lender may declare the entire remaining balance immediately due.</p>`;
+            } else if (template.baseId === 'sla') {
+                content += `<h3>2. SERVICES</h3>`;
+                content += `<p>Service Provider agrees to provide: ${escapeHtml(values.services || 'Services as specified')}.</p>`;
+                content += `<h3>3. SERVICE LEVELS</h3>`;
+                content += `<p>Target uptime: ${escapeHtml(values.uptime || '99.9')}%. Response time for support requests: ${escapeHtml(values.responseTime || '24')} hours.</p>`;
+                content += `<h3>4. FEES</h3>`;
+                content += `<p>Monthly service fee: ${escapeHtml(values.monthlyFee || '0')} ${escapeHtml(values.currency || 'USD')}.</p>`;
+                content += `<h3>5. REMEDIES</h3>`;
+                content += `<p>If Service Levels are not met, Service Provider shall provide service credits as specified in the Schedule of Service Credits.</p>`;
+            } else if (template.baseId === 'partnership') {
+                content += `<h3>2. BUSINESS NAME AND PURPOSE</h3>`;
+                content += `<p>The partners agree to form a partnership under the name "${escapeHtml(values.businessName || 'Partnership Name')}".</p>`;
+                content += `<h3>3. CAPITAL CONTRIBUTIONS</h3>`;
+                content += `<p>Initial investment: ${escapeHtml(values.investmentAmount || '0')} ${escapeHtml(values.currency || 'USD')} per partner.</p>`;
+                content += `<h3>4. PROFIT AND LOSS SHARING</h3>`;
+                content += `<p>Profits and losses shall be shared in the following ratio: ${escapeHtml(values.profitSharing || '50/50')}.</p>`;
+                content += `<h3>5. MANAGEMENT</h3>`;
+                content += `<p>Each partner shall have equal rights in management unless otherwise agreed in writing.</p>`;
+            } else if (template.baseId === 'contractor') {
+                content += `<h3>2. SCOPE OF WORK</h3>`;
+                content += `<p>Contractor agrees to perform: ${escapeHtml(values.scope || 'Work as specified')}.</p>`;
+                content += `<h3>3. COMPENSATION</h3>`;
+                content += `<p>Rate: ${escapeHtml(values.rate || '0')} ${escapeHtml(values.currency || 'USD')} per hour/project. Contract duration: ${escapeHtml(values.contractDuration || '6')} months.</p>`;
+                content += `<h3>4. INDEPENDENT CONTRACTOR STATUS</h3>`;
+                content += `<p>Contractor is an independent contractor and not an employee. No taxes, benefits, or withholding shall apply.</p>`;
+                content += `<h3>5. WORK PRODUCT</h3>`;
+                content += `<p>All work product created shall be owned by the hiring party upon payment in full.</p>`;
+            } else if (template.baseId === 'software-license') {
+                content += `<h3>2. SOFTWARE LICENSE</h3>`;
+                content += `<p>Software: "${escapeHtml(values.softwareName || 'Software')}". License type: ${escapeHtml(values.licenseType || 'Single User')}. License fee: ${escapeHtml(values.licenseFee || '0')} ${escapeHtml(values.currency || 'USD')}.</p>`;
+                content += `<h3>3. GRANT OF LICENSE</h3>`;
+                content += `<p>Licensor grants Licensee a non-exclusive, non-transferable license to use the software in accordance with this agreement.</p>`;
+                content += `<h3>4. RESTRICTIONS</h3>`;
+                content += `<p>Licensee shall not: (a) copy or reproduce the software; (b) reverse engineer or disassemble; (c) sublicense or transfer rights; (d) use for commercial purposes without permission.</p>`;
+                content += `<h3>5. TERM</h3>`;
+                content += `<p>This license is perpetual unless terminated for breach. Either party may terminate with 30 days' written notice.</p>`;
+            }
+
+            return content;
+        }
+
+        function getJurisdictionHeader(jurisdiction) {
+            const headers = {
+                'US': '<p><em>This contract is prepared in accordance with United States law and the Uniform Commercial Code (UCC) where applicable.</em></p>',
+                'India': '<p><em>This contract is prepared in accordance with the Indian Contract Act, 1872, and applicable laws of India. Stamp duty shall apply as per applicable state laws.</em></p>',
+                'Canada': '<p><em>This contract is prepared in accordance with applicable provincial law of Canada.</em></p>',
+                'China': '<p><em>This contract is prepared in accordance with the laws of the People\'s Republic of China and the Contract Law of the People\'s Republic of China.</em></p>',
+                'UK': '<p><em>This contract is prepared in accordance with the laws of England and Wales and is subject to the English law governing principle.</em></p>',
+                'EU': '<p><em>This contract is prepared in accordance with the laws of the European Union, including GDPR compliance where applicable.</em></p>'
+            };
+            return headers[jurisdiction] || '';
+        }
+
+        function getJurisdictionClauses(jurisdiction) {
+            let clauses = '';
+
+            if (jurisdiction === 'US') {
+                clauses += `<h3>SEVERABILITY AND WAIVER</h3>`;
+                clauses += `<p>If any provision is found invalid, the remaining provisions remain in effect. Waiver of any provision is not a waiver of any other provision.</p>`;
+            } else if (jurisdiction === 'India') {
+                clauses += `<h3>CONSIDERATION</h3>`;
+                clauses += `<p>The parties acknowledge that valid consideration has passed between them as specified in this agreement. This agreement is valid and binding under the Indian Contract Act, 1872.</p>`;
+                clauses += `<h3>STAMP DUTY</h3>`;
+                clauses += `<p>The parties acknowledge that appropriate stamp duty shall be paid as per the Stamp Act applicable in the relevant state or union territory.</p>`;
+            } else if (jurisdiction === 'Canada') {
+                clauses += `<h3>INDEPENDENT LEGAL ADVICE</h3>`;
+                clauses += `<p>Each party confirms that they have had the opportunity to seek independent legal counsel before executing this agreement.</p>`;
+            } else if (jurisdiction === 'China') {
+                clauses += `<h3>DISPUTE RESOLUTION</h3>`;
+                clauses += `<p>Any disputes shall first be resolved through negotiation between the parties. If negotiation fails, disputes may be referred to arbitration under Chinese law.</p>`;
+            } else if (jurisdiction === 'UK') {
+                clauses += `<h3>ASSIGNMENT</h3>`;
+                clauses += `<p>Neither party shall assign their rights or obligations under this agreement without prior written consent of the other party.</p>`;
+            } else if (jurisdiction === 'EU') {
+                clauses += `<h3>GDPR COMPLIANCE</h3>`;
+                clauses += `<p>Any personal data processed under this agreement shall be processed in compliance with the General Data Protection Regulation (GDPR) and applicable data protection laws.</p>`;
+                clauses += `<h3>DATA PROTECTION</h3>`;
+                clauses += `<p>Each party shall ensure compliance with all applicable data protection regulations and shall not process personal data contrary to this agreement.</p>`;
+            }
+
+            return clauses;
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return String(text).replace(/[&<>"']/g, m => map[m]);
+        }
+
+        // ==================== UI STATE MANAGEMENT ====================
+
+        const templates = generateTemplates();
+        let currentTemplate = null;
+        let currentValues = {};
+        let currentJurisdiction = null;
+
+        // ==================== INITIALIZE UI ====================
+
+        function initializeUI() {
+            populateTemplateSelect();
+            setupEventListeners();
+            loadLastDraft();
+        }
+
+        function populateTemplateSelect() {
+            const select = document.getElementById('templateSelect');
+            templates.forEach(template => {
+                const option = document.createElement('option');
+                option.value = template.id;
+                option.textContent = template.name;
+                select.appendChild(option);
+            });
+        }
+
+        function setupEventListeners() {
+            document.getElementById('templateSelect').addEventListener('change', handleTemplateChange);
+            document.getElementById('jurisdictionOverride').addEventListener('change', handleJurisdictionChange);
+            document.getElementById('saveDraftBtn').addEventListener('click', saveDraft);
+            document.getElementById('loadDraftBtn').addEventListener('click', loadDraft);
+            document.getElementById('clearDraftBtn').addEventListener('click', clearDraft);
+            document.getElementById('downloadPdfBtn').addEventListener('click', downloadPdf);
+            document.getElementById('downloadHtmlBtn').addEventListener('click', downloadHtml);
+        }
+
+        function handleTemplateChange(e) {
+            const templateId = e.target.value;
+            if (!templateId) {
+                currentTemplate = null;
+                document.getElementById('formFieldsContainer').innerHTML = '';
+                document.getElementById('contractPreview').innerHTML = '<div class="empty-state">Select a template to begin</div>';
+                return;
+            }
+
+            currentTemplate = templates.find(t => t.id === templateId);
+            currentJurisdiction = null;
+            document.getElementById('jurisdictionOverride').value = '';
+            currentValues = {};
+            renderFormFields();
+            updatePreview();
+        }
+
+        function handleJurisdictionChange(e) {
+            const jurisdiction = e.target.value;
+            if (!currentTemplate) return;
+
+            if (jurisdiction) {
+                currentJurisdiction = jurisdiction;
+            } else {
+                currentJurisdiction = null;
+            }
+            updatePreview();
+        }
+
+        function renderFormFields() {
+            const container = document.getElementById('formFieldsContainer');
+            if (!currentTemplate) {
+                container.innerHTML = '';
+                return;
+            }
+
+            container.innerHTML = '';
+            const fieldGroup = document.createElement('div');
+            fieldGroup.className = 'section-title';
+            fieldGroup.textContent = 'Contract Details';
+            container.appendChild(fieldGroup);
+
+            currentTemplate.fields.forEach(field => {
+                const formGroup = document.createElement('div');
+                formGroup.className = 'form-group';
+
+                const label = document.createElement('label');
+                label.htmlFor = field.name;
+                label.textContent = field.label;
+                formGroup.appendChild(label);
+
+                let input;
+                if (field.type === 'select') {
+                    input = document.createElement('select');
+                    input.id = field.name;
+                    field.options.forEach(opt => {
+                        const option = document.createElement('option');
+                        option.value = opt;
+                        option.textContent = opt;
+                        input.appendChild(option);
+                    });
+                } else if (field.type === 'textarea') {
+                    input = document.createElement('textarea');
+                    input.id = field.name;
+                    input.placeholder = field.placeholder || '';
+                } else {
+                    input = document.createElement('input');
+                    input.id = field.name;
+                    input.type = field.type;
+                    input.placeholder = field.placeholder || '';
+                }
+
+                input.value = currentValues[field.name] || '';
+                input.addEventListener('input', (e) => {
+                    currentValues[field.name] = e.target.value;
+                    updatePreview();
+                });
+                input.addEventListener('change', (e) => {
+                    currentValues[field.name] = e.target.value;
+                    updatePreview();
+                });
+
+                formGroup.appendChild(input);
+                container.appendChild(formGroup);
+            });
+        }
+
+        function updatePreview() {
+            const previewDiv = document.getElementById('contractPreview');
+            if (!currentTemplate) {
+                previewDiv.innerHTML = '<div class="empty-state">Select a template to begin</div>';
+                return;
+            }
+
+            const jurisdiction = currentJurisdiction || currentTemplate.jurisdiction;
+            const contractHtml = currentTemplate.render(currentValues, jurisdiction);
+            previewDiv.innerHTML = contractHtml;
+        }
+
+        function showSuccessMessage(msg) {
+            const msgEl = document.getElementById('successMessage');
+            msgEl.textContent = msg;
+            msgEl.classList.add('show');
+            setTimeout(() => msgEl.classList.remove('show'), 3000);
+        }
+
+        function saveDraft() {
+            if (!currentTemplate) {
+                showSuccessMessage('Please select a template first.');
+                return;
+            }
+
+            const draft = {
+                templateId: currentTemplate.id,
+                jurisdiction: currentJurisdiction,
+                values: currentValues,
+                timestamp: new Date().toISOString()
+            };
+
+            localStorage.setItem('contractDraft', JSON.stringify(draft));
+            showSuccessMessage('Draft saved successfully!');
+        }
+
+        function loadDraft() {
+            const draftJson = localStorage.getItem('contractDraft');
+            if (!draftJson) {
+                showSuccessMessage('No draft found.');
+                return;
+            }
+
+            try {
+                const draft = JSON.parse(draftJson);
+                const template = templates.find(t => t.id === draft.templateId);
+                if (!template) {
+                    showSuccessMessage('Template not found.');
+                    return;
+                }
+
+                currentTemplate = template;
+                currentValues = draft.values || {};
+                currentJurisdiction = draft.jurisdiction || null;
+
+                document.getElementById('templateSelect').value = template.id;
+                if (currentJurisdiction) {
+                    document.getElementById('jurisdictionOverride').value = currentJurisdiction;
+                } else {
+                    document.getElementById('jurisdictionOverride').value = '';
+                }
+
+                renderFormFields();
+                updatePreview();
+                showSuccessMessage('Draft loaded successfully!');
+            } catch (e) {
+                showSuccessMessage('Error loading draft.');
+            }
+        }
+
+        function loadLastDraft() {
+            const draftJson = localStorage.getItem('contractDraft');
+            if (draftJson) {
+                loadDraft();
+            }
+        }
+
+        function clearDraft() {
+            if (confirm('Are you sure you want to clear the saved draft?')) {
+                localStorage.removeItem('contractDraft');
+                showSuccessMessage('Draft cleared.');
+            }
+        }
+
+        function downloadPdf() {
+            if (!currentTemplate) {
+                alert('Please select and fill a template first.');
+                return;
+            }
+            window.print();
+        }
+
+        function downloadHtml() {
+            if (!currentTemplate) {
+                alert('Please select and fill a template first.');
+                return;
+            }
+
+            const jurisdiction = currentJurisdiction || currentTemplate.jurisdiction;
+            const contractHtml = currentTemplate.render(currentValues, jurisdiction);
+
+            const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${escapeHtml(currentTemplate.name)}</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            color: #1a1a1a;
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .signature-block {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .signature-line {
+            border-top: 1px solid #000;
+            padding-top: 6px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    ${contractHtml}
+</body>
+</html>`;
+
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${currentTemplate.name.replace(/\s+/g, '_')}.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initializeUI);
+    </script>
+</body>
+</html>
